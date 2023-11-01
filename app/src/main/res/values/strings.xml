@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Tarjetas</string>
+    <string name="image">imagen</string>
+
+
+    <string name="title1">IRONMAN</string>
+    <string name="title2">HULK</string>
+    <string name="title3">CAPITAN</string>
+    <string name="title4">SPIDERMAN</string>
+    <string name="title5">THOR</string>
+</resources>

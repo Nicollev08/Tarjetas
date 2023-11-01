@@ -1,10 +1,15 @@
 package com.example.tarjetas.data
 
+import android.content.Context
 import com.example.tarjetas.R
 import com.example.tarjetas.model.RecyclerData
+import java.util.Locale
 
-class DataSource {
 
+
+class DataSource(private val context: Context) {
+
+    private val originalData = loadAffirmations()
     fun loadAffirmations(): List<RecyclerData>{
         return listOf<RecyclerData>(
             RecyclerData(R.string.title1, R.drawable.ironman),
@@ -21,4 +26,14 @@ class DataSource {
 
         )
     }
+
+    fun search(query: String): List<RecyclerData> {
+        val lowerCaseQuery = query.toLowerCase(Locale.getDefault())
+        return originalData.filter {
+            context.resources.getString(it.stringResourceId).toLowerCase(Locale.getDefault())
+                .contains(lowerCaseQuery)
+        }
+    }
+
+
 }
